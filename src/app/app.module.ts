@@ -16,6 +16,7 @@ import { appRoutes } from './routes';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserExercisesComponent } from './user-exercises/user-exercises.component';
 import { UserMealsComponent } from './user-meals/user-meals.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { UserMealsComponent } from './user-meals/user-meals.component';
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, ErrorInterceptorProvider, AlertifyService],
+  providers: [AuthService, ErrorInterceptorProvider, AlertifyService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
