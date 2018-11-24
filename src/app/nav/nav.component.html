@@ -6,7 +6,9 @@
     <li class="nav-item"><a class="nav-link" href="#">Dieta</a></li>
   </ul>
   <div *ngIf="loggedIn()" class="dropdown">
-    <a class="dropdown-toggle text-light"> Witaj </a>
+    <a class="dropdown-toggle text-light">
+      Witaj {{ authService.decodedToken?.unique_name }}</a
+    >
 
     <div class="dropdown-menu">
       <a class="dropdown-item" href="#"
@@ -19,7 +21,8 @@
     </div>
   </div>
 
-  <form *ngIf="!loggedIn()"
+  <form
+    *ngIf="!loggedIn()"
     #loginForm="ngForm"
     class="form-inline my-2 my-lg-0"
     (ngSubmit)="login()"
