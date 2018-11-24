@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="#">FitCenter</a>
+    <a class="navbar-brand" [routerLink]="['/centre']" routerLinkActive="router-link-active" >FitCenter</a>
     
 	<ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-      <li class="nav-item active"><a class="nav-link" href="#">Centrum</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Trening</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Dieta</a></li>
+      <li class="nav-item" routerLinkActive="active" [routerLink]="['/centre']"><a class="nav-link">Centrum</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/exercises']">Ćwiczenia</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/meals']">Posiłki</a></li>
     </ul>
 	
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
