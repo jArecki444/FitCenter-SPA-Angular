@@ -4,11 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.prod';
 import { UserExercises } from '../_models/userExercises';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +15,6 @@ export class ExercisesService {
   baseUrl = environment.apiUrl;
 
   getUserExercises(id): Observable<UserExercises> {
-    return this.http.get<UserExercises>(this.baseUrl + 'Exercises/' + id, httpOptions);
+    return this.http.get<UserExercises>(this.baseUrl + 'Exercises/' + id);
   }
 }
