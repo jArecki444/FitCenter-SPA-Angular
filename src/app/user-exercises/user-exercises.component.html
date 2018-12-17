@@ -1,3 +1,49 @@
-<p>
-  user-exercises works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8 p-3">
+      <h2>Dodaj własne ćwiczenie</h2>
+      <form>
+        <div class="form-group row">
+          <label for="Nazwa ćwiczenia" class="col-3 col-form-label"
+            >Nazwa ćwiczenia</label
+          >
+          <div class="col-9">
+            <input
+              type="email"
+              class="form-control"
+              id="inputmailh"
+              placeholder="Nazwa twojego ćwiczenia"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label
+            for="inputpasswordh"
+            class="col-3 col-form-label"
+            contenteditable="true"
+            >Partia mięśniowa</label
+          >
+          <div class="col-9">
+            <input
+              type="password"
+              class="form-control"
+              id="inputpasswordh"
+              placeholder="Wybierz partię mięśniową"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Dodaj ćwiczenie</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2>Twoje ćwiczenia</h2>
+      <p *ngFor="let i of userExercises?.exercises">
+        <b>Nazwa cwiczenia: </b>{{ i.name }} <b>Partia miesniowa </b>{{ i.muscleGroup }}
+        <b>Ilosc spalanych kcal/min </b>{{ i.caloriesPerMinute }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.backgroundImage {
+  height: -webkit-fill-available;
+  background-size: cover;
+  width: auto;
+
+  background-image: url("https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0f7dc071673a7213b24926db00cda2d7&auto=format&fit=crop&w=1350&q=80");
+  background-position: 50% 50%;
+}
+.card {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  width: 35em;
+}
+.text-primary {
+  color: #32a4ff !important;
+}
+.col-md-5 {
+  padding-left: 12em;
+}
