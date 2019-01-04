@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EditUser } from '../_models/editUser';
 import { AlertifyService } from '../_services/alertify.service';
@@ -14,6 +14,14 @@ import { NgForm } from '@angular/forms';
 export class UserEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   editUserData: EditUser;
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
+  // Kod odpowiedzialny za wywołanie modala ostrzegajacego przed zamknieciem przegladarki
 
   constructor(private route: ActivatedRoute, private alertify: AlertifyService,
     private userService: UserService, private authService: AuthService) {}
