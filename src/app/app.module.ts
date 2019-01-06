@@ -19,6 +19,9 @@ import { UserExercisesComponent } from './user-exercises/user-exercises.componen
 import { UserMealsComponent } from './user-meals/user-meals.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ExercisesService } from './_services/exercises.service';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -32,7 +35,8 @@ export function tokenGetter() {
     HomeComponent,
     UserDashboardComponent,
     UserExercisesComponent,
-    UserMealsComponent
+    UserMealsComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthService, ExercisesService, ErrorInterceptorProvider, AlertifyService, AuthGuard],
+  providers: [AuthService, ExercisesService, ErrorInterceptorProvider, AlertifyService, AuthGuard, UserEditResolver, PreventUnsavedChanges],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

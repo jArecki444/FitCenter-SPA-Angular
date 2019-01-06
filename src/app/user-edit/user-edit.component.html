@@ -1,0 +1,144 @@
+<div class="container">
+  <form #editForm="ngForm" id="editForm" (ngSubmit)="editUser()">
+    <div class="row m-4">
+      <div class="col-md-2">
+        <h4>Imię</h4>
+        <textarea
+          class="form-control"
+          name="name"
+          rows="3"
+          [(ngModel)]="editUserData.name"
+        ></textarea>
+
+        <h4>Nazwisko</h4>
+        <textarea
+          class="form-control"
+          name="surname"
+          rows="6"
+          [(ngModel)]="editUserData.surname"
+        ></textarea>
+      </div>
+
+      <div class="col-md-8 mx-5">
+        <h4>Wymiary:</h4>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Wzrost</label>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                name="height"
+                [(ngModel)]="editUserData.height"
+              />
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <label class="col-3 col-form-label">Waga</label>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                name="weight"
+                [(ngModel)]="editUserData.weight"
+              />
+            </div>
+          </div>
+  
+          <div class="form-group row">
+            <label class="col-3 col-form-label">Aktualny % BF </label>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                name="bf"
+                [(ngModel)]="editUserData.bf"
+              />
+            </div>
+          </div>
+        
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Obwód klatki piersiowej</label>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                name="chestCircuit"
+                [(ngModel)]="editUserData.chestCircuit"
+              />
+            </div>
+          </div>
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Obwód bicepsa </label>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                name="bicepCircuit"
+                [(ngModel)]="editUserData.bicepCircuit"
+              />
+            </div>
+          </div>
+
+            <div class="form-group row">
+                <label class="col-3 col-form-label">Obwód przedramienia</label>
+                <div class="col-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="forearmCircuit"
+                    [(ngModel)]="editUserData.forearmCircuit"
+                  />
+                </div>
+              </div>
+              
+            <div class="form-group row">
+                <label class="col-3 col-form-label">Obwód w pasie</label>
+                <div class="col-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="waistCircuit"
+                    [(ngModel)]="editUserData.waistCircuit"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                  <label class="col-3 col-form-label">Obwód bioder</label>
+                  <div class="col-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="hipCircuit"
+                      [(ngModel)]="editUserData.hipCircuit"
+                    />
+                  </div>
+                </div>
+
+              <div class="form-group row">
+                  <label class="col-3 col-form-label">Obwód łydki</label>
+                  <div class="col-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="calfCircuit"
+                      [(ngModel)]="editUserData.calfCircuit"
+                    />
+                  </div>
+                </div>
+
+
+        <div class="card-footer">
+          <button
+            [disabled]="!editForm.dirty"
+            form="editForm"
+            class="btn btn-success btn-block">
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
