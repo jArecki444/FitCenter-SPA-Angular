@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.prod';
 import { UserExercises } from '../_models/userExercises';
+import { Exercise } from '../_models/Exercise';
 
 
 
@@ -16,5 +17,11 @@ export class ExercisesService {
 
   getUserExercises(id): Observable<UserExercises> {
     return this.http.get<UserExercises>(this.baseUrl + 'Exercises/' + id);
+  }
+
+  postUserExercise(userId: number, exercise: Exercise) {
+    return this.http.post(
+      this.baseUrl + 'Exercises/Add?userId=' + userId, exercise
+    );
   }
 }
