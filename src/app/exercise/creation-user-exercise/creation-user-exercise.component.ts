@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserExercises } from '../_models/userExercises';
-import { ExercisesService } from '../_services/exercises.service';
-import { AlertifyService } from '../_services/alertify.service';
-import { AuthService } from '../_services/auth.service';
+import { UserExercises } from '../../_models/userExercises';
+import { ExercisesService } from '../../_services/exercises.service';
+import { AlertifyService } from '../../_services/alertify.service';
+import { AuthService } from '../../_services/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 enum FormControlNames {
@@ -10,11 +10,11 @@ enum FormControlNames {
   MUSCLE_GROUP = 'muscleGroup'
 }
 @Component({
-  selector: 'app-user-exercises',
-  templateUrl: './user-exercises.component.html',
-  styleUrls: ['./user-exercises.component.css']
+  selector: 'app-creation-user-exercise',
+  templateUrl: './creation-user-exercise.component.html',
+  styleUrls: ['./creation-user-exercise.component.css']
 })
-export class UserExercisesComponent implements OnInit {
+export class CreationUserExerciseComponent implements OnInit {
   exerciseForm: FormGroup;
   userExercises: UserExercises;
   userId: number;
