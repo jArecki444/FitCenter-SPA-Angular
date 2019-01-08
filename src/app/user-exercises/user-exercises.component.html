@@ -3,37 +3,39 @@
     <div class="col-md-4"></div>
     <div class="col-md-8 p-3">
       <h2>Dodaj własne ćwiczenie</h2>
-      <form>
+      <form [formGroup]="exerciseForm" (ngSubmit)="onExerciseFormSubmit()">
         <div class="form-group row">
-          <label for="Nazwa ćwiczenia" class="col-3 col-form-label"
-            >Nazwa ćwiczenia</label
-          >
+          <label class="col-3 col-form-label">Nazwa ćwiczenia</label>
           <div class="col-9">
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="inputmailh"
               placeholder="Nazwa twojego ćwiczenia"
+              required
+              [formControlName]="formControlNames.EXERCISE_NAME"
             />
           </div>
         </div>
         <div class="form-group row">
-          <label
-            for="inputpasswordh"
-            class="col-3 col-form-label"
-            contenteditable="true"
-            >Partia mięśniowa</label
-          >
+          <label class="col-3 col-form-label">Partia mięśniowa</label>
           <div class="col-9">
-            <input
-              type="password"
+            <select
               class="form-control"
-              id="inputpasswordh"
-              placeholder="Wybierz partię mięśniową"
-            />
+              placeholder="Zaangażowana pratia mięsniowa"
+              required
+              [formControlName]="formControlNames.MUSCLE_GROUP">
+                <option> Plecy </option>
+                <option> Klatka piersiowa </option>
+                <option> Brzuch </option>
+                <option> Barki </option>
+                <option> Biceps </option>
+                <option> Triceps </option>
+                <option> Nogi </option>
+                <option> Łydki </option>
+              </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Dodaj ćwiczenie</button>
+        <button type="submit" [disabled]="!exerciseForm.valid" class="btn btn-primary">Dodaj ćwiczenie</button>
       </form>
     </div>
   </div>

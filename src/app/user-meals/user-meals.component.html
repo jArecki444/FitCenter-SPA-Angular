@@ -3,15 +3,16 @@
     <div class="col-md-4"></div>
     <div class="col-md-8 p-3">
       <h2>Dodaj własny produkt</h2>
-      <form>
+      <form [formGroup]="productForm" (ngSubmit)="onProductFormSubmit()">
         <div class="form-group row">
           <label for="Nazwa" class="col-3 col-form-label">Nazwa</label>
           <div class="col-9">
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="inputmailh"
               placeholder="Nazwa własnego produktu"
+              required
+              [formControlName]="formControlNames.PRODUCT_NAME"
             />
           </div>
         </div>
@@ -19,62 +20,56 @@
           <label for="Białko" class="col-3 col-form-label">Białko</label>
           <div class="col-9">
             <input
-              type="email"
+              type="number"
               class="form-control"
-              id="inputmailh"
               placeholder="Ilość białka w 100g produktu"
+              required
+              [formControlName]="formControlNames.INGREDIENT_1"
             />
           </div>
         </div>
         <div class="form-group row">
-          <label
-            for="inputpasswordh"
-            class="col-3 col-form-label"
-            contenteditable="true"
-            >Węglowodany</label
-          >
+          <label class="col-3 col-form-label">Węglowodany</label>
           <div class="col-9">
             <input
-              type="password"
+              type="number"
               class="form-control"
-              id="inputpasswordh"
               placeholder="Ilość węglowodanów w 100g produktu"
+              required
+              [formControlName]="formControlNames.INGREDIENT_2"
             />
           </div>
         </div>
         <div class="form-group row">
-          <label
-            for="inputpasswordh"
-            class="col-3 col-form-label"
-            contenteditable="true"
-            >Tłuszcze</label
-          >
+          <label class="col-3 col-form-label">Tłuszcze</label>
           <div class="col-9">
             <input
-              type="password"
+              type="number"
               class="form-control"
-              id="inputpasswordh"
               placeholder="Ilość tłuszczy w 100g produktu"
+              required
+              [formControlName]="formControlNames.INGREDIENT_3"
             />
           </div>
         </div>
         <div class="form-group row">
-          <label
-            for="inputpasswordh"
-            class="col-3 col-form-label"
-            contenteditable="true"
-            >Kaloryczność</label
-          >
+          <label class="col-3 col-form-label">Kaloryczność</label>
           <div class="col-9">
             <input
-              type="password"
+              type="number"
               class="form-control"
-              id="inputpasswordh"
               placeholder="Ilość kalorii w 100g produktu"
+              required
+              [formControlName]="formControlNames.CALORIFIC_VALUE"
             />
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Dodaj posiłek</button>
+        <button
+          type="submit"
+          [disabled]="!productForm.valid"
+          class="btn btn-primary">
+          Dodaj produkt
+        </button>
       </form>
     </div>
   </div>
