@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
-import { Product } from '../_models/Product';
-import { AlertifyService } from '../_services/alertify.service';
-import { MealsService } from '../_services/meals.service';
-import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../../_services/alertify.service';
+import { MealsService } from '../../_services/meals.service';
+import { AuthService } from '../../_services/auth.service';
 
 enum FormControlNames {
   PRODUCT_NAME = 'name',
@@ -15,11 +14,11 @@ enum FormControlNames {
 }
 
 @Component({
-  selector: 'app-user-meals',
-  templateUrl: './user-meals.component.html',
-  styleUrls: ['./user-meals.component.css']
+  selector: 'app-creation-user-product',
+  templateUrl: './creation-user-product.component.html',
+  styleUrls: ['./creation-user-product.component.css']
 })
-export class UserMealsComponent implements OnInit {
+export class CreationUserProductComponent implements OnInit {
   productForm: FormGroup;
   formControlNames = FormControlNames;
 

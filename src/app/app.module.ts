@@ -14,14 +14,14 @@ import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { UserExercisesComponent } from './user-exercises/user-exercises.component';
-import { UserMealsComponent } from './user-meals/user-meals.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
+import { CreationUserExerciseComponent } from './exercise/creation-user-exercise/creation-user-exercise.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ExercisesService } from './_services/exercises.service';
-import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { CreationUserProductComponent } from './meal/creation-user-product/creation-user-product.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -34,8 +34,8 @@ export function tokenGetter() {
     RegisterComponent,
     HomeComponent,
     UserDashboardComponent,
-    UserExercisesComponent,
-    UserMealsComponent,
+    CreationUserExerciseComponent,
+    CreationUserProductComponent,
     UserEditComponent
   ],
   imports: [

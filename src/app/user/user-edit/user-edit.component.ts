@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EditUser } from '../_models/editUser';
-import { AlertifyService } from '../_services/alertify.service';
-import { UserService } from '../_services/user.service';
-import { AuthService } from '../_services/auth.service';
 import { NgForm } from '@angular/forms';
+import { EditUser } from '../../_models/editUser';
+import { AlertifyService } from '../../_services/alertify.service';
+import { UserService } from '../../_services/user.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-user-edit',
