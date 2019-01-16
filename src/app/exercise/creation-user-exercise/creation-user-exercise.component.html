@@ -42,9 +42,8 @@
   <div class="row">
     <div class="col-6">
       <h2>Twoje ćwiczenia</h2>
-      <p *ngFor="let i of userExercises?.exercises">
+      <p *ngFor="let i of userExercises">
         <b>Nazwa cwiczenia: </b>{{ i.name }} <b>Partia miesniowa </b>{{ i.muscleGroup }}
-        <b>Ilosc spalanych kcal/min </b>{{ i.caloriesPerMinute }}
       </p>
     </div>
   </div>

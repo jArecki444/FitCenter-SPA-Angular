@@ -7,7 +7,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
-import { CreationUserProductComponent } from './meal/creation-user-product/creation-user-product.component';
+import { CreationUserProductComponent } from './product/creation-user-product/creation-user-product.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },

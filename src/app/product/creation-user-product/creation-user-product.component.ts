@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { AlertifyService } from '../../_services/alertify.service';
-import { MealsService } from '../../_services/meals.service';
 import { AuthService } from '../../_services/auth.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 enum FormControlNames {
   PRODUCT_NAME = 'name',
@@ -25,8 +25,8 @@ export class CreationUserProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private alertify: AlertifyService,
-    private mealsService: MealsService,
-    private authService: AuthService) { }
+    private productService: ProductService,
+    ) { }
 
   ngOnInit() {
     this.productForm = this.formBuilder.group({
@@ -39,7 +39,7 @@ export class CreationUserProductComponent implements OnInit {
   }
 
   onProductFormSubmit() {
-    this.mealsService.createUserProduct(this.authService.decodedToken.nameid, this.productForm.value).subscribe(next => {
+    this.productService.createUserProduct(this.productForm.value).subscribe(next => {
       this.alertify.success('Produkt został zapisany!');
     }, error => {
       this.alertify.error(error);
