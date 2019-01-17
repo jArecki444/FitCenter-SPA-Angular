@@ -16,20 +16,16 @@ enum FormControlNames {
 })
 export class CreationUserExerciseComponent implements OnInit {
   exerciseForm: FormGroup;
-  userExercises: Exercise[];
   userId: number;
   formControlNames = FormControlNames;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private exercisesService: ExercisesService,
     private alertify: AlertifyService
   ) {}
 
   ngOnInit() {
-    this.userId = this.authService.decodedToken.nameid;
-    this.loadUserExercises();
     this.exerciseForm = this.formBuilder.group({
       [FormControlNames.EXERCISE_NAME]: [
         '',
@@ -41,21 +37,11 @@ export class CreationUserExerciseComponent implements OnInit {
       ]
     });
   }
+
   onExerciseFormSubmit() {
     this.exercisesService.postUserExercise(this.exerciseForm.value).subscribe(
       next => {
         this.alertify.success('Ćwiczenie zostało zapisane!');
-      },
-      error => {
-        this.alertify.error(error);
-      }
-    );
-  }
-
-  loadUserExercises() {
-    this.exercisesService.getUserExercises().subscribe(
-      userExercisesResponse => {
-        this.userExercises = userExercisesResponse.successResult;
       },
       error => {
         this.alertify.error(error);

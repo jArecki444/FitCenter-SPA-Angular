@@ -1,0 +1,15 @@
+<div class="container">
+  <a class="nav-link" [routerLink]="['/products/new']">Dodaj nowy produkt</a>
+  <div class="row">
+    <div class="col-6">
+      <h2>Twoje produkty</h2>
+      <p *ngFor="let i of userProducts">
+        <b>Nazwa produktu: </b>{{ i.name }}
+        <b>Białko w 100g</b> {{i.proteins}}
+        <b>Węglowodany na 100g</b> {{i.carbohydrates}}
+        <b>Tłuszcze na 100g</b> {{i.fat}}
+        <b>Kaloryczność na 100g</b> {{i.kcal}}
+      </p>
+    </div>
+  </div>
+</div>
