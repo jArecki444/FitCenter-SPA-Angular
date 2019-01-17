@@ -21,7 +21,10 @@ import { ExercisesService } from './_services/exercises.service';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
-import { CreationUserProductComponent } from './meal/creation-user-product/creation-user-product.component';
+import { CreationUserProductComponent } from './product/creation-user-product/creation-user-product.component';
+import { DetailsUserProductsComponent } from './product/details-user-products/details-user-products.component';
+import { DetailsUserExercisesComponent } from './exercise/details-user-exercises/details-user-exercises.component';
+import { DetailsUserMealsComponent } from './meal/details-user-meals/details-user-meals.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -36,7 +39,10 @@ export function tokenGetter() {
     UserDashboardComponent,
     CreationUserExerciseComponent,
     CreationUserProductComponent,
-    UserEditComponent
+    UserEditComponent,
+    DetailsUserProductsComponent,
+    DetailsUserExercisesComponent,
+    DetailsUserMealsComponent
   ],
   imports: [
     BrowserModule,

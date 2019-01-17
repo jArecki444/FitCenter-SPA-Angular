@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserExercises } from '../../_models/userExercises';
 import { ExercisesService } from '../../_services/exercises.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { AuthService } from '../../_services/auth.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Exercise } from 'src/app/_models/Exercise';
 
 enum FormControlNames {
   EXERCISE_NAME = 'name',
@@ -16,20 +16,16 @@ enum FormControlNames {
 })
 export class CreationUserExerciseComponent implements OnInit {
   exerciseForm: FormGroup;
-  userExercises: UserExercises;
   userId: number;
   formControlNames = FormControlNames;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private exercisesService: ExercisesService,
     private alertify: AlertifyService
   ) {}
 
   ngOnInit() {
-    this.userId = this.authService.decodedToken.nameid;
-    this.loadUserExercises();
     this.exerciseForm = this.formBuilder.group({
       [FormControlNames.EXERCISE_NAME]: [
         '',
@@ -41,26 +37,11 @@ export class CreationUserExerciseComponent implements OnInit {
       ]
     });
   }
-  onExerciseFormSubmit() {
-    this.exercisesService
-      .postUserExercise(
-        this.authService.decodedToken.nameid,
-        this.exerciseForm.value
-      )
-      .subscribe(
-        next => {
-          this.alertify.success('Ćwiczenie zostało zapisane!');
-        },
-        error => {
-          this.alertify.error(error);
-        }
-      );
-  }
 
-  loadUserExercises() {
-    this.exercisesService.getUserExercises(this.userId).subscribe(
-      (userExercisesResponse: UserExercises) => {
-        this.userExercises = userExercisesResponse;
+  onExerciseFormSubmit() {
+    this.exercisesService.postUserExercise(this.exerciseForm.value).subscribe(
+      next => {
+        this.alertify.success('Ćwiczenie zostało zapisane!');
       },
       error => {
         this.alertify.error(error);
