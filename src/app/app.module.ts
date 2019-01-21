@@ -25,6 +25,10 @@ import { CreationUserProductComponent } from './product/creation-user-product/cr
 import { DetailsUserProductsComponent } from './product/details-user-products/details-user-products.component';
 import { DetailsUserExercisesComponent } from './exercise/details-user-exercises/details-user-exercises.component';
 import { DetailsUserMealsComponent } from './meal/details-user-meals/details-user-meals.component';
+import { UserMealsTableComponent } from './meal/user-meals-table/user-meals-table.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -42,11 +46,13 @@ export function tokenGetter() {
     UserEditComponent,
     DetailsUserProductsComponent,
     DetailsUserExercisesComponent,
-    DetailsUserMealsComponent
+    DetailsUserMealsComponent,
+    UserMealsTableComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
@@ -57,7 +63,9 @@ export function tokenGetter() {
         whitelistedDomains: ['localhost:5000'],
         blacklistedRoutes: ['localhost:5000/api/auth']
       }
-    })
+    }),
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [AuthService, ExercisesService, ErrorInterceptorProvider, AlertifyService, AuthGuard, UserEditResolver, PreventUnsavedChanges],
   bootstrap: [AppComponent]

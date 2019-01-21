@@ -1,20 +1,4 @@
 <div class="container">
-    <a class="nav-link" [routerLink]="['/exercises/new']">Dodaj nowy posiłek</a>
-    <div class="row">
-      <div class="col-6">
-        <h2>Twoje ćwiczenia</h2>
-        <div *ngFor="let i of userMeals">
-          <b>Nazwa posiłku: </b>{{ i.name }}
-          <b>Białko</b> {{i.proteins}}
-          <b>Węglowodany</b> {{i.carbohydrates}}
-          <b>Tłuszcze</b> {{i.fat}}
-          <b>Kaloryczność</b> {{i.kcal}} 
-          <b>Produkty</b>
-          <p *ngFor="let product of i.products">
-            {{product.name}}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+  <h3 class="mt-4">Twoje posiłki:</h3>
+  <app-user-meals-table></app-user-meals-table>
+</div>
