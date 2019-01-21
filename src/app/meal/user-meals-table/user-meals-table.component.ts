@@ -20,7 +20,7 @@ constructor(
   private alertify: AlertifyService
 ) { }
 
-  displayedColumns = ['name', 'proteins', 'carbohydrates', 'fat', 'calories'];
+  displayedColumns = ['name', 'proteins', 'carbohydrates', 'fat', 'kcal'];
 
   ngOnInit() {
     this.loadUserMealsToTable();
