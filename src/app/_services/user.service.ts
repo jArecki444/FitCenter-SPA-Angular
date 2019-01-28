@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { EditUser } from '../_models/editUser';
+import { SingleResponse } from '../_models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.baseUrl + 'users/' + id);
+  getUser(): Observable<SingleResponse<User>> {
+    return this.http.get<SingleResponse<User>>(this.baseUrl + 'users/');
   }
 
-  editUser(id: number, editUser: EditUser) {
-    return this.http.put(this.baseUrl + 'users/' + id, editUser);
+  editUser(editUser: EditUser) {
+    return this.http.put(this.baseUrl + 'users/', editUser);
   }
 }

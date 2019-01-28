@@ -28,12 +28,11 @@ export class UserEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.editUserData = data['user'];
+      this.editUserData = data['user'].successResult;
     });
   }
   editUser() {
-    console.log(this.editUserData);
-    this.userService.editUser(this.authService.decodedToken.nameid, this.editUserData).subscribe(next => {
+    this.userService.editUser(this.editUserData).subscribe(next => {
       this.alertify.success('Zmiany zostały zapisane!');
       this.editForm.reset(this.editUserData);
     }, error => {

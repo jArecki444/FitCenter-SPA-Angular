@@ -4,7 +4,6 @@ export interface EditUser {
     email: string;
     height: number;
     weight: number;
-    bf: number;
     targetBf: number;
     bicepCircuit: number;
     forearmCircuit: number;
