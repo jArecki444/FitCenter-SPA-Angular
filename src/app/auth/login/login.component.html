@@ -1,0 +1,38 @@
+<section>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      #loginForm="ngForm"
+      (ngSubmit)="login()"
+    >
+      <mat-form-field>
+        <input
+          type="email"
+          matInput
+          placeholder="Podaj adres email"
+          name="email"
+          email
+          required
+          [(ngModel)]="model.email"
+          #emailInput="ngModel"
+        />
+        <mat-error *ngIf="emailInput.hasError('email')">Podaj poprawny adres email.</mat-error>
+        <mat-error *ngIf="emailInput.hasError('required')">Pole nie może być puste.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          placeholder="Podaj hasło"
+          name="password"
+          [(ngModel)]="model.password"
+          required
+          #pwInput="ngModel"
+        />
+        <mat-error *ngIf="pwInput.hasError('required')">Pole nie może być puste.</mat-error>
+      </mat-form-field>
+      <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary">
+        Zaloguj
+      </button>
+    </form>
+  </section>

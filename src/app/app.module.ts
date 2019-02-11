@@ -8,7 +8,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
@@ -29,6 +28,8 @@ import { UserMealsTableComponent } from './meal/user-meals-table/user-meals-tabl
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,7 +48,8 @@ export function tokenGetter() {
     DetailsUserProductsComponent,
     DetailsUserExercisesComponent,
     DetailsUserMealsComponent,
-    UserMealsTableComponent
+    UserMealsTableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

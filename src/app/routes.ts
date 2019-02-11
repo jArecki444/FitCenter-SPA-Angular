@@ -11,9 +11,13 @@ import { CreationUserProductComponent } from './product/creation-user-product/cr
 import { DetailsUserProductsComponent } from './product/details-user-products/details-user-products.component';
 import { DetailsUserExercisesComponent } from './exercise/details-user-exercises/details-user-exercises.component';
 import { DetailsUserMealsComponent } from './meal/details-user-meals/details-user-meals.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent},
+  { path: 'auth/login', component: LoginComponent},
   {
       path: '',
       runGuardsAndResolvers: 'always',

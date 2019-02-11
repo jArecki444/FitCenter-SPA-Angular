@@ -1,0 +1,58 @@
+<section>
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    #registerForm="ngForm"
+    (ngSubmit)="register()"
+  >
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Podaj swoje imię"
+        name="name"
+        [(ngModel)]="model.name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Podaj swoje nazwisko"
+        name="surname"
+        [(ngModel)]="model.surname"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Podaj adres email"
+        name="email"
+        email
+        required
+        [(ngModel)]="model.email"
+        #emailInput="ngModel"
+      />
+      <mat-error *ngIf="emailInput.hasError('email')">Podaj poprawny adres email.</mat-error>
+      <mat-error *ngIf="emailInput.hasError('required')">Pole nie może być puste.</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Hasło powinno zawierać przynajniej 4 znaki.">
+      <input
+        type="password"
+        matInput
+        placeholder="Podaj hasło"
+        name="password"
+        [(ngModel)]="model.password"
+        required
+        minlength="4"
+        #pwInput="ngModel"
+      />
+      <mat-hint align="end"> {{pwInput.value?.length}} </mat-hint>
+      <mat-error>Podane hasło zawiera mniej niż 4 znaki!</mat-error>
+    </mat-form-field>
+    <button type="submit" [disabled]="!registerForm.valid" mat-raised-button color="primary">
+      Stwórz konto
+    </button>
+  </form>
+</section>

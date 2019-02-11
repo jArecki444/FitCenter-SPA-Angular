@@ -1,5 +1,51 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-
-
-
+<!-- <app-nav></app-nav> -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <mat-nav-list>
+      <a mat-list-item routerLink="auth/register" (click)="sidenav.close()">
+        <mat-icon>face</mat-icon>
+        <span class="nav-caption">Rejestracja</span>
+      </a>
+      <a mat-list-item routerLink="auth/login" (click)="sidenav.close()">
+        <mat-icon>input</mat-icon>
+        <span class="nav-caption">Logowanie</span>
+      </a>
+      <a mat-list-item routerLink="/centre" (click)="sidenav.close()">
+        <mat-icon>face</mat-icon>
+        <span class="nav-caption">Centrum</span>
+      </a>
+      <mat-list-item>
+          <button mat-icon-button (click)="sidenav.close()">
+              <mat-icon>eject</mat-icon>
+              <span class="nav-caption">Wyloguj</span>
+          </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div><a routerLin="/">LogoFitCenter</a></div>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul *ngIf="!loggedIn()" fxLayout fxLayoutGap="10px" class="navigation-items">
+          <li><a routerLink="auth/login">Logowanie</a></li>
+          <li><a routerLink="auth/register">Rejestracja</a></li>
+        </ul>
+        <ul *ngIf="loggedIn()" fxLayout fxLayoutGap="10px" class="navigation-items">
+          <li><a routerLink="/centre">Centrum</a></li>
+          <li><a routerLink="/exercises">Ćwiczenia</a></li>
+          <li><a routerLink="/meals">Posiłki</a></li>
+          <li><a routerLink="/products">Produkty</a></li>
+          <li><a (click)="logout()">Wyloguj</a></li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
