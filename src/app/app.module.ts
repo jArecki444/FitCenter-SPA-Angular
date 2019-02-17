@@ -30,7 +30,6 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -49,7 +48,7 @@ export function tokenGetter() {
     DetailsUserExercisesComponent,
     DetailsUserMealsComponent,
     UserMealsTableComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

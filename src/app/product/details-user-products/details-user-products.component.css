@@ -1,0 +1,19 @@
+.mat-raised-button {
+    margin-right: 15px;
+}
+.mat-raised-button.delete:hover {
+    background-color: rgb(206, 29, 29);
+    color: white;
+}
+.mat-raised-button.edit:hover {
+    background-color: rgb(255, 115, 0);
+    color: white;
+}
+.data-table {
+    width: 80%;
+    margin: 20px auto;
+}
+h2 {
+    text-align: center;
+    color: #3f51b5;
+}

@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../_models/Product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ArrayResponse } from '../_models/response';
+import { ArrayResponse, SingleResponse } from '../_models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,11 @@ export class ProductService {
   getUserProducts(): Observable<ArrayResponse<Product>> {
     return this.http.get<ArrayResponse<Product>>(
       this.baseUrl + 'Products/AllUserProducts'
+    );
+  }
+  deleteUserProduct(productId: number): Observable<SingleResponse<any>> {
+    return this.http.delete<ArrayResponse<any>>(
+      this.baseUrl + 'Products/' + productId
     );
   }
 }

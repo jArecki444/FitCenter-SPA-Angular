@@ -1,5 +1,6 @@
 <div class="container">
   <a class="nav-link" [routerLink]="['/products/new']">Dodaj nowy produkt</a>
+  <h2>Twoje produkty</h2>
   <div fxLayoutAlign="center center">
       <mat-form-field fxFlex="40%">
         <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Wyszukaj">
@@ -31,6 +32,14 @@
           <ng-container matColumnDef="kcal">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Kalorie</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.kcal}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Akcje</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button class="edit" mat-raised-button >Edytuj</button>
+              <button class="delete" mat-raised-button (click)="deleteProduct(element.id)">Usuń</button>
+            </mat-cell>
           </ng-container>
       
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

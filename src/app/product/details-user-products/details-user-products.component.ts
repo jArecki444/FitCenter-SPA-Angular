@@ -20,7 +20,7 @@ export class DetailsUserProductsComponent implements OnInit, AfterViewInit {
     private alertify: AlertifyService
   ) {}
 
-  displayedColumns = ['name', 'proteins', 'carbohydrates', 'fat', 'kcal'];
+  displayedColumns = ['name', 'proteins', 'carbohydrates', 'fat', 'kcal', 'actions'];
 
   ngOnInit() {
     this.loadUserProductsToTable();
@@ -36,12 +36,26 @@ export class DetailsUserProductsComponent implements OnInit, AfterViewInit {
       userProductsResponse => {
         this.userProducts = userProductsResponse.successResult;
         this.dataSource.data = this.userProducts;
+        console.log(this.dataSource.data);
       },
       error => {
         this.alertify.error(error);
       }
     );
   }
+
+  deleteProduct(productId: number) {
+    this.productsService.deleteUserProduct(productId).subscribe(
+      () => {
+        this.alertify.success('Produkt został usunięty');
+        this.loadUserProductsToTable();
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
+
 
   doFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
